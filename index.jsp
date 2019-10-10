@@ -5,8 +5,10 @@
 <head>
 <meta charset="utf-8">
 <title>Online Mobile Store</title>
-<link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick.css"/>
-	<link rel="stylesheet" type="text/css" href="http://kenwheeler.github.io/slick/slick/slick-theme.css"/>
+<link rel="stylesheet" type="text/css"
+	href="http://kenwheeler.github.io/slick/slick/slick.css" />
+<link rel="stylesheet" type="text/css"
+	href="http://kenwheeler.github.io/slick/slick/slick-theme.css" />
 
 
 <link rel="stylesheet" type="text/css"
@@ -17,9 +19,9 @@
 <body>
 
 
-<%@page import="java.util.ArrayList"%> 
-<%@page import="list.ListProduct"%>
-<%@page import="java.util.Iterator"%> 
+	<%@page import="java.util.ArrayList"%>
+	<%@page import="list.ListProduct"%>
+	<%@page import="java.util.Iterator"%>
 	<div class="navbar navbar-default navbar-fixed-top" id="topnav">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -91,17 +93,17 @@
 
 	<!-- Slider Begins -->
 	<div class="col-md-12">
-	<div class="one-time">
-		<div>
-			<img src="assets/images/image1.jpg">
+		<div class="one-time">
+			<div>
+				<img src="assets/images/image1.jpg">
+			</div>
+			<div>
+				<img src="assets/images/image2.jpg">
+			</div>
+			<div>
+				<img src="assets/images/image3.jpg">
+			</div>
 		</div>
-		<div>
-			<img src="assets/images/image2.jpg">
-		</div>
-		<div>
-			<img src="assets/images/image3.jpg">
-		</div>
-	</div>
 	</div>
 
 	<!-- Slider ends -->
@@ -151,24 +153,39 @@
 								</div>
 							</div>
 						</div>-->
+						<%
+							ListProduct lp = new ListProduct();
+							ArrayList<String> list = lp.print();
+							Iterator<String> iterator = list.iterator();
+							while (iterator.hasNext()) {
+						%>
 						<div class="col-md-4">
 							<div class="panel panel-info">
-							<% ListProduct lp = new ListProduct();
-							   ArrayList<String> list = lp.print();
-							   Iterator<String> iterator = list.iterator();
-							    while (iterator.hasNext()) {    
-							        %>
-							
-								<div class="panel-heading"><% out.println(iterator.next());%></div>
-								<div class="panel-body"><img src="assets/prod_images/samsung_galaxy.jpg"></div>
-								<div class="panel-heading">$500.00
-								<button class="btn btn-danger btn-xs" style="float:right;">Add to Cart</button>
+
+
+								<div class="panel-heading">
+									<%
+										out.println(iterator.next());
+									%>
 								</div>
-								   <% }%> 
+								<div class="panel-body">
+									<img src="assets/images/phone.png">
+								</div>
+								<div class="panel-heading">
+									$500.00
+									<button class='quicklook btn btn-warning btn-xs'
+										style='float: right;'>Quick look</button>
+									<button class="btn btn-danger btn-xs" style="float: right;">Add
+										to Cart</button>
+								</div>
+
 							</div>
-							
+
 						</div>
-						
+						<%
+							}
+						%>
+
 					</div>
 					<div class="panel-footer">&copy; 2019</div>
 				</div>
@@ -178,9 +195,10 @@
 		<div class="row">
 			<div class="col-md-12">
 
-					<ul class='pagination' id='pageno'>
-
-					</ul>
+				<ul class='pagination' id='pageno'>
+				
+					
+				</ul>
 
 			</div>
 
@@ -218,7 +236,8 @@
 
 	<script type="text/javascript"
 		src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-	<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
+	<script type="text/javascript"
+		src="//cdn.jsdelivr.net/jquery.slick/1.6.0/slick.min.js"></script>
 
 	<script src="main.js"></script>
 
